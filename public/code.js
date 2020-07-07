@@ -29,11 +29,14 @@ function setSlide(swiper,label){
 function setInitSlides(swipers){
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
-	if (urlParams){
-		let initString = urlParams.get('p').split('-');
-		setSlide(swipers[0],initString[0]);
-		setSlide(swipers[1],initString[1]);
-		setSlide(swipers[2],initString[2]);
+	if (urlParams != null){
+		let param = urlParams.get('p');
+		if (param){
+			let initString = param.split('-');
+			setSlide(swipers[0],initString[0]);
+			setSlide(swipers[1],initString[1]);
+			setSlide(swipers[2],initString[2]);
+		}
 	}
 }
 function getActiveLabel(swiper){
